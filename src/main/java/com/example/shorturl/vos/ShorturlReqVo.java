@@ -9,9 +9,10 @@ import lombok.Data;
  * @date : 2021/7/7
  * desc:
  */
-@ApiModel(value =  "请求参数")
+@ApiModel(value =  "Shorturl请求参数")
 @Data
 public class ShorturlReqVo {
+
     @ApiModelProperty(value = "链接域名",example="www.baidu.com")
     private String url;
 }

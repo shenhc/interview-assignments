@@ -1,17 +1,17 @@
 package com.example.shorturl.controller;
 
-import com.alibaba.fastjson.JSONObject;
 import com.example.shorturl.service.UrlService;
+import com.example.shorturl.vos.LongurlReqVo;
 import com.example.shorturl.vos.LongurlResVo;
 import com.example.shorturl.vos.ShorturlReqVo;
 import com.example.shorturl.vos.ShorturlResVo;
-import io.swagger.annotations.*;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author : shenhc
@@ -20,16 +20,16 @@ import javax.servlet.http.HttpServletRequest;
  */
 @RestController
 @RequestMapping("/shorturl")
-@Api(value = "BulterEstateController", description = "ShorturlController")
+@Api(value = "ShorturlController", description = "ShorturlController")
 public class ShorturlController {
 
     @Autowired
     private UrlService urlService;
 
 
-    @ApiOperation(value = "获取短域名", notes = "获取短域名",httpMethod="POST",response = ShorturlResVo.class )
+    @ApiOperation(value = "获取短域名", notes = "获取短域名", httpMethod = "POST", response = ShorturlResVo.class)
     @RequestMapping("/toShort")
-    public ShorturlResVo getShorturl(@RequestBody ShorturlReqVo input){
+    public ShorturlResVo getShorturl(@RequestBody ShorturlReqVo input) {
 
         String longurl = input.getUrl();
         ShorturlResVo resVo = new ShorturlResVo();
@@ -38,8 +38,9 @@ public class ShorturlController {
     }
 
     @RequestMapping("/toLong")
-    @ApiOperation(value = "获取长域名", notes = "跟据短域名获取长域名",httpMethod="POST",response =LongurlResVo.class)
-    public LongurlResVo getLongurl(@RequestBody ShorturlReqVo input){
+    @ApiOperation(value = "获取长域名", notes = "跟据短域名获取长域名", httpMethod = "POST",
+            response = LongurlResVo.class)
+    public LongurlResVo getLongurl(@RequestBody LongurlReqVo input) {
         String shorturl = input.getUrl();
         LongurlResVo resVo = new LongurlResVo();
         resVo.setUrl(urlService.getLongurl(shorturl));

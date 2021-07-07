@@ -9,9 +9,10 @@ import lombok.Data;
  * @date : 2021/7/7
  * desc:
  */
-@ApiModel(value =  "请求参数")
+@ApiModel(value = "Longurl请求参数")
 @Data
 public class LongurlReqVo {
-    @ApiModelProperty(value = "链接域名",example="oIpU0")
+
+    @ApiModelProperty(value = "链接域名", example = "oIpU0")
     private String url;
 }

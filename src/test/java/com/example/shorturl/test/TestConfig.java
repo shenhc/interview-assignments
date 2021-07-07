@@ -1,6 +1,7 @@
 package com.example.shorturl.test;
 
 import com.example.shorturl.controller.ShorturlController;
+import com.example.shorturl.vos.LongurlReqVo;
 import com.example.shorturl.vos.ShorturlReqVo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,11 +26,12 @@ public class TestConfig {
 	@Test
 	public void testSys() {
 		ShorturlReqVo reqVo = new ShorturlReqVo();
+		LongurlReqVo reqlongVo = new LongurlReqVo();
 		reqVo.setUrl("www.baidu.com");
 		controller.getShorturl(reqVo);
 		reqVo.setUrl("www.baidu.com");
 		controller.getShorturl(reqVo);
-		reqVo.setUrl("oIpU0");
-		controller.getLongurl(reqVo);
+		reqlongVo.setUrl("oIpU0");
+		controller.getLongurl(reqlongVo);
 	}
 }
