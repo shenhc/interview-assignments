@@ -2,7 +2,9 @@ package com.example.shorturl.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.example.shorturl.service.UrlService;
+import com.example.shorturl.vos.LongurlResVo;
 import com.example.shorturl.vos.ShorturlReqVo;
+import com.example.shorturl.vos.ShorturlResVo;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,18 +27,22 @@ public class ShorturlController {
     private UrlService urlService;
 
 
-    @ApiOperation(value = "获取短域名", notes = "获取短域名",httpMethod="POST")
+    @ApiOperation(value = "获取短域名", notes = "获取短域名",httpMethod="POST",response = ShorturlResVo.class )
     @RequestMapping("/toShort")
-    public JSONObject getShorturl(@RequestBody ShorturlReqVo input){
+    public ShorturlResVo getShorturl(@RequestBody ShorturlReqVo input){
 
         String longurl = input.getUrl();
-        return urlService.getShorturl(longurl);
+        ShorturlResVo resVo = new ShorturlResVo();
+        resVo.setUrl(urlService.getShorturl(longurl));
+        return resVo;
     }
 
     @RequestMapping("/toLong")
-    @ApiOperation(value = "获取长域名", notes = "获取长域名",httpMethod="POST")
-    public JSONObject getLongurl(@RequestBody ShorturlReqVo input){
+    @ApiOperation(value = "获取长域名", notes = "跟据短域名获取长域名",httpMethod="POST",response =LongurlResVo.class)
+    public LongurlResVo getLongurl(@RequestBody ShorturlReqVo input){
         String shorturl = input.getUrl();
-        return urlService.getLongurl(shorturl);
+        LongurlResVo resVo = new LongurlResVo();
+        resVo.setUrl(urlService.getLongurl(shorturl));
+        return resVo;
     }
 }

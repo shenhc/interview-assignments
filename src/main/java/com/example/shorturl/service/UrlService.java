@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 @Service
 public class UrlService {
 
-    public JSONObject getShorturl(String longurl){
+    public String getShorturl(String longurl){
 
         String shorturlDb = CashMapUtil.getKeyByValue(longurl);
 
@@ -28,15 +28,13 @@ public class UrlService {
             shorturl = ShorturlUtil.shorten(longurl);
             CashMapUtil.pushValue(shorturl, longurl);
         }
-        JSONObject res = new JSONObject();
-        res.put("shorturl",shorturl);
-        return res;
+        return shorturl;
     }
 
-    public JSONObject getLongurl(String shorturl){
+    public String getLongurl(String shorturl){
         String longurl = CashMapUtil.getValue(shorturl);
         JSONObject res = new JSONObject();
         res.put("longurl",longurl);
-        return res;
+        return longurl;
     }
 }

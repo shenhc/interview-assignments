@@ -36,8 +36,8 @@ public class Swagger2 {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("好房房源")
-                .description("好房房源服务")
+                .title("短域名服务")
+                .description("提供短域名服务")
                 .termsOfServiceUrl("http://www.hopson.com.cn/")
                 .contact(new Contact("shenhc", "", "xxxxx@qq.com"))
                 .version("1.0")

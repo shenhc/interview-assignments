@@ -1,6 +1,7 @@
 # Compiled class file
 *.class
-
+*/.idea/
+.idea/
 # Log file
 *.log
 
@@ -56,8 +57,6 @@ gradle/
 */.settings/
 */.DS_Store
 .DS_Store
-*/.idea/
-.idea/
 gradlew
 gradlew.bat
 unused.txt
@@ -79,3 +78,4 @@ buildNumber.properties
 .scannerwork/
 
 git
+/.idea/

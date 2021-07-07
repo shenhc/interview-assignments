@@ -16,13 +16,13 @@ public class JunitTest {
     @Test
     public void testShortUrl(){
 
-        JSONObject shortUrlStr = urlService.getShorturl("www.baidu.com");
+        String shortUrlStr = urlService.getShorturl("www.baidu.com");
         System.out.println(shortUrlStr);
     }
 
     @Test
     public void testLongUrl(){
-        JSONObject shortUrlStr = urlService.getLongurl("oIpU0");
+        String shortUrlStr = urlService.getLongurl("oIpU0");
         System.out.println(shortUrlStr);
     }
 }
