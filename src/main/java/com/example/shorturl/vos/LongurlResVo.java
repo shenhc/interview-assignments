@@ -9,7 +9,7 @@ import lombok.Data;
  * @date : 2021/7/7
  * desc:
  */
-@ApiModel(value =  "响应参数")
+@ApiModel(value =  "Longurl响应参数")
 @Data
 public class LongurlResVo {
     @ApiModelProperty(value = "链接域名",example="www.baidu.com")

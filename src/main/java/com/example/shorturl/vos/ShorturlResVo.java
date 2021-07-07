@@ -9,7 +9,7 @@ import lombok.Data;
  * @date : 2021/7/7
  * desc:
  */
-@ApiModel(value = "响应参数")
+@ApiModel(value = "Shorturl响应参数")
 @Data
 public class ShorturlResVo {
 
